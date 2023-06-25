@@ -1,7 +1,7 @@
 # Privacy-Preserving-in-Blockchain
 
-This repo is dedicated to implementing a simplified version of the Zcash protocol. More precisely, we are interested in spend(sprout) protocol and how zkps have been used. To do this, just start with a few basic circuits to defuse the development flow, and become more familiar with the Circom language.
-## Pre-reqiuirements: 
+This repo is dedicated to implementing a simplified version of the Zcash protocol. More precisely, we are interested in the spend(sprout) protocol and how zkps were used. To do this, just start with a few basic circuits to defuse the development flow, and become more familiar with the Circom language.
+## Pre-requirements: 
 Install snarkjs, circom, and circomlib
 
 ## Development flow:
@@ -12,10 +12,10 @@ Install snarkjs, circom, and circomlib
          --r1cs       outputs the constraints in r1cs format in binary format
          --wasm       Compiles the circuit to wasm
 
-In this case, we create an R1CS  file, along with a folder with the files of generate_witness.js, cubicEq.wasm and witness_calculator.j. The R1CS format is used to represent all the wires in the circuit, and so that they can be checked for the proof — this is known as a Quadratic Arithmetic Program (QAP).
+In this case, we create an R1CS  file, along with a folder with the files generate_witness.js, cubicEq.wasm and witness_calculator.j. The R1CS format is used to represent all the wires in the circuit, and so that they can be checked for the proof — this is known as a Quadratic Arithmetic Program (QAP).
 
 3- Computing our witness to create the actual proofs.
-We need to create a file named input.json containing the inputs of circuit written in the standard json format.
+We need to create a file named input.json containing the inputs of the circuit written in the standard json format.
 node generate_witness.js poseidonWitness.wasm input.json witness.wtns
 
 4- Generate Trusted setup (CrS) including proof key and verification key.
@@ -46,11 +46,11 @@ Export the verification key:
 
 snarkjs zkey export verificationkey cubicEq_0001.zkey verification_key.json -->
 
-5- Generate proof : takes circuit in c1rs format, proofing key and witness and then creates a proof 
+5- Generate proof: takes circuit in c1rs format, proofing key and witness, and then creates a proof 
 
 snarkjs groth16 prove cubicEq_0001.zkey witness.wtns proof.json public1.json
 
-6- verification: takes circuit in r1cs format, proof and public inputs and verification key and output the verification result. 
+6- verification: takes circuit in r1cs format, proof and public inputs, and verification key and outputs the verification result. 
 
 7- Also it is possible to create a smart contract verifier.sol and deploy it on the blockchain. Then we can send the proof and see the results.
 
