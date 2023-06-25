@@ -1,0 +1,14 @@
+{
+  "name": "zksamples",
+  "version": "1.0.0",
+  "description": "how zk works in reality ",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Mehri",
+  "license": "ISC",
+  "dependencies": {
+    "circomlib": "^2.0.5"
+  }
+}
