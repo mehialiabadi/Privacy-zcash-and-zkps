@@ -1,11 +1,11 @@
 # Privacy-Preserving-in-Blockchain
 
-This repo is dedicated to implementing a simplified version of the Zcash protocol. More precisely, we are interested in the spend(sprout) protocol and how zkps were used. To do this, just start with a few basic circuits to defuse the development flow, and become more familiar with the Circom language.
+This repo is dedicated to implementing a simplified version of the Zcash protocol. More precisely, we are interested in the spend(sprout) protocol and how zkps were used. To do this, just start with a few basic circuits to defuse the development flow, and become more familiar with the Circom language. 
 ## Pre-requirements: 
 Install snarkjs, circom, and circomlib
 
 ## Development flow:
-1- Develop  circuit in circom 
+1- Develop  circuits in circom 
 
 2- Compile circom cubicEq.circom to get r1cs and witness generator as follows:
  circom  "circom file" --r1cs --wasm -o ../build/...
